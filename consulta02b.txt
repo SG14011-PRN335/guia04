@@ -1,0 +1,1 @@
+SELECT c FROM Post p JOIN p.idCategoria c GROUP BY c HAVING COUNT(c) >= ALL (SELECT COUNT(c1) FROM Post p1 JOIN p1.idCategoria c1 GROUP BY c1)

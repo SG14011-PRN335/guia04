@@ -1,0 +1,1 @@
+SELECT s FROM Seccion s JOIN s.tipoPostSeccionList tps JOIN tps.tipoPost tp GROUP BY s HAVING COUNT(s) >= ALL (SELECT COUNT(s1) FROM Seccion s1 JOIN s1.tipoPostSeccionList tps1 JOIN tps1.tipoPost tp1 GROUP BY s1)

@@ -1,0 +1,2 @@
+SELECT p.titulo, p.fecha, COUNT(p) FROM Post p JOIN p.cometarioList c JOIN Usuario u ON (c.idUsuario = u.idUsuario) WHERE p.idPost = (SELECT DISTINCT p1.idPost FROM Post p1 JOIN p1.cometarioList c1 GROUP BY p1.idPost HAVING COUNT(p1.idPost) >= ALL (SELECT COUNT(p2.idPost) FROM Post p2 JOIN p2.cometarioList c2 GROUP BY p2.idPost)) GROUP BY p
+
